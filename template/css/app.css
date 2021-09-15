@@ -12301,7 +12301,8 @@ input[type=number]::-webkit-outer-spin-button{
     position: absolute;
     z-index: 5;
     top: 0;
-    left: 0;    
+    left: 0;      
+    padding: 1rem 0;   
 }
 .header__fixed {
     background-color: rgba(0, 0, 0, .9);
@@ -12309,7 +12310,7 @@ input[type=number]::-webkit-outer-spin-button{
     top: 0;
     left: 0;
     z-index: 10; 
-    padding: 1rem 0;         
+    transition: 0.2s;        
 }
 .header__container {
     position: relative;
@@ -12338,13 +12339,18 @@ input[type=number]::-webkit-outer-spin-button{
 .header__menu {
     text-transform: uppercase;
 }
+@media (hover) {
+    .header__menu:hover {
+    color: #8fc74e;
+    }
+}
 .header__menu--img {
     height: 1.25rem;
     width: 2rem;
 }
 .header__logo {
     position: absolute;
-    top: calc(50% - 0.3rem);
+    top: calc(50% - 0.78rem);
     left: calc(50% - 5.3125rem);
     height: 1.56rem;
     width: 10.625rem;   
@@ -12366,8 +12372,32 @@ input[type=number]::-webkit-outer-spin-button{
     align-items: center;
     padding: 0.625rem 1.25rem;
     border: 1.1px solid #FFFFFF;
-    background-color: transparent;    
+    background-color: transparent; 
+    position: relative;   
 }
+.header__fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    width: 0;
+    height: 100%;
+    background: #94DD3E;
+    transition: width .25s ease-in-out;
+}
+.header__content {
+    transition: width .25s ease-in-out;
+    position: relative;    
+    z-index: 6;
+    color: #FFFFFF;
+} 
+@media (hover) {
+    .header__reserve:hover .header__fill {    
+        width: 100%;
+    }
+} 
 .header__button {
     display: flex;
     flex-direction: column;
@@ -12401,7 +12431,26 @@ input[type=number]::-webkit-outer-spin-button{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 3;
 }
+.home__blur {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    filter: blur(10px);
+    min-height: 100vh;
+    transition: transform 0.5s ease-in-out;        
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(0deg, rgba(23, 23, 23, 0.45), rgba(23, 23, 23, 0.45)), url(../img/IMG_8799\ 1.png); 
+}
+.home__content:hover~.home__blur {
+    z-index: 1; 
+    transition: transform 0.5s ease-in-out;
+} 
 .home__title, .about__title { 
     font-family: 'BravoRG', sans-serif;
     font-style: normal;
@@ -12433,6 +12482,7 @@ input[type=number]::-webkit-outer-spin-button{
     position: absolute;
     bottom: 1.875rem;
     left: 0;
+    z-index: 3;
 }
 .home__social {
     display: flex;
@@ -12447,7 +12497,32 @@ input[type=number]::-webkit-outer-spin-button{
     line-height: 1.5rem;
     color: #FFFFFF;
     margin-right: 1.875rem;
+    transition: color .25s ease-in-out;
+    position: relative;
 }
+.home__icon:after, .home__tel:after, .home__phone:after, .contacts__phone:after, .contacts__item:after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    height: 1px;
+    width: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background: #FFFFFF;
+    -webkit-transition: width .25s ease-in-out;
+    -o-transition: width ease-in-out .25s;
+    transition: width .25s ease-in-out;
+} 
+@media (hover) {
+    .home__icon:hover:after, .home__tel:hover:after, .contacts__item:hover:after, .home__phone:hover:after, .contacts__phone:hover:after {
+        width: 100%;
+    }    
+} 
+.home__phone:after, .contacts__phone:after { 
+    background: #79c71e;     
+}      
 .home__delivery {    
     display: flex;
     flex-direction: column;
@@ -12468,6 +12543,7 @@ input[type=number]::-webkit-outer-spin-button{
     font-weight: normal;
     font-size: 1.375rem;
     line-height: 2.06rem;
+    position: relative;
 }
 .home__phone {
     font-family: 'Lato-Regular', sans-serif;
@@ -12477,7 +12553,19 @@ input[type=number]::-webkit-outer-spin-button{
     line-height: 1.31rem;
     color: #94DD3E;
     cursor: pointer;
+    position: relative;
+    transition: color .25s ease-in-out;   
 }
+@media (hover) {
+    .home__phone:hover, .about__link:hover, .team__link:hover, .event__link:hover, .contacts__phone:hover {
+        color: #79c71e;  
+    }  
+} 
+@media (hover) {
+    .team__link:hover, .event__link:hover, .about__link:hover {
+        text-shadow: 1px 1px 2px greenyellow;
+    }
+}    
 .about {   
     width: 100%;
     height: 100%;
@@ -12601,7 +12689,7 @@ input[type=number]::-webkit-outer-spin-button{
 .about__wrap--right {
     justify-self: end;
 }
-.about__wrap--arrow {
+.about__wrap--arrow, .event__wrap--arrow, .team__wrap--arrow {
     width: 6.25rem;
     height: 3.75rem;
     position: absolute;      
@@ -12621,7 +12709,8 @@ input[type=number]::-webkit-outer-spin-button{
     color: #94DD3E;
     bottom: 5px;
     right: 5px;
-    padding: 1.125rem;
+    padding: 1.125rem;    
+    transition: color .25s ease-in-out; 
 }
 .about__wrap--top {
     top: 5px;
@@ -12656,9 +12745,11 @@ input[type=number]::-webkit-outer-spin-button{
 .about__arrow--right {
     transform: rotate(180deg);
 }
-.about__arrow:hover {
-    background-color: #94DD3E;
-    color: #FFFFFF;
+@media (hover) {
+    .about__arrow:hover {
+        background-color: #94DD3E;
+        color: #FFFFFF;
+    }
 }
 .event {
     padding: 8.125rem 0 8.75rem; 
@@ -12709,6 +12800,19 @@ input[type=number]::-webkit-outer-spin-button{
     width: 100%;
     padding-top: 122%;
     position: relative;
+    transform: scale(1);
+}
+@media (hover) {
+    .event__cards:hover .event__wrap {
+        width: 105%;
+        transition: transform .5s ease-in-out;
+    }
+}
+@media (hover) {
+    .event__cards:hover .event__date, .event__cards:hover .event__subtitle {
+        margin-left: 1rem;
+        transition: transform .5s ease-in-out;
+    }
 }
 .event__image {
     width: 100%;
@@ -12776,7 +12880,7 @@ input[type=number]::-webkit-outer-spin-button{
     line-height: 1.5rem;    
     color: #94DD3E;
     padding-bottom: 2rem;
-}
+} 
 .event__arrow {
     position: relative;
     width: 100%;
@@ -12818,9 +12922,11 @@ input[type=number]::-webkit-outer-spin-button{
         padding: 3rem 0;
     }    
 } 
-.menu__item:hover .menu__title::after{
-    width: 3.75rem;    
-    margin: 1.25rem calc(50% - 1.875rem) 0;
+@media (hover) {
+    .menu__item:hover .menu__title::after{
+        width: 3.75rem;    
+        margin: 1.25rem calc(50% - 1.875rem) 0;
+    }
 } 
 .menu__wrap {
     position: relative;
@@ -12861,7 +12967,7 @@ input[type=number]::-webkit-outer-spin-button{
     height: 100%;
     padding: 9.375rem 4.375rem;    
 }
-.team__item{
+.team__item {
     width: 50%;
     height: 100%;
     position: relative;
@@ -12976,8 +13082,12 @@ input[type=number]::-webkit-outer-spin-button{
 }
 .contacts__icon {
     color: #666666; 
-    padding-top: 1.25rem;   
+    padding-top: 1.25rem;
+    position: relative;   
 } 
+.contacts__icon:after {
+    background: #666666;
+}    
 .contacts__place, .contacts__time {
     font-family: 'Lato-Regular', sans-serif;
     font-style: normal;
@@ -12991,13 +13101,15 @@ input[type=number]::-webkit-outer-spin-button{
     padding: 0.625rem 0;
 } 
 .contacts__phone {
+    position: relative;
     font-family: 'BravoRG', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     line-height: 2.81rem;
     color: #94DD3E;
     font-stretch: ultra-condensed;
+    transition: color .25s ease-in-out;
 }  
 .footer {
     width: 100%;
@@ -13021,6 +13133,9 @@ input[type=number]::-webkit-outer-spin-button{
 @media screen and (max-width: 1200px) { 
     .about, .menu, .event, .team {
         padding: 5rem 0; 
+    }    
+    .contacts__icon {
+        margin: 0 1.875rem;
     }
 }  
 @media screen and (max-width: 768px) {
@@ -13038,18 +13153,27 @@ input[type=number]::-webkit-outer-spin-button{
         min-height: 50vh;
         width: 100%;
     }
-    .home__social, .home__delivery, .about__wrap--arrow, .slick-arrow, #event-arrow-prev, #event-arrow-next {
+    .home__content:hover~.home__blur {
+        z-index: -1; 
+    }    
+    .home__social, .home__delivery {
         display: none;
         visibility: hidden;
     } 
     .about__link {
         bottom: -55px;
     } 
-    .event__content{  
-        display: grid;
-        grid-template-columns: repeat(3, 31%);
-        gap: 0 1rem;
-        width: 100%;
+    .event__content {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        align-items: center;
+    }
+    .team__gallery {
+        width: 60%;
+    }
+    .event__cards {
+        width: 60%;
     }
     .event__text {
         text-align: center;
@@ -13060,8 +13184,16 @@ input[type=number]::-webkit-outer-spin-button{
     } 
     .contacts__place { 
         text-align: center; 
-    }    
-}    
+    }  
+    .event__wrap--arrow {
+        top: 0;
+        right: calc(50% - 7.125rem);
+        padding-bottom: 2rem;
+    }
+    .event__wrap--left {
+        right: calc(50% + 0.875rem);
+    }  
+}  
 @media screen and (max-width: 600px) { 
     .header__item--special {
         display: none;
@@ -13074,18 +13206,20 @@ input[type=number]::-webkit-outer-spin-button{
     }
     .event__item {
         padding-bottom: 0;
+    }  
+    .about__wrap--arrow, .team__wrap--arrow {
+        display: none;
+        visibility: hidden;
     } 
-    .event__arrow {
-        height: 0;
-    } 
-    .event__content {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-    }
     .about, .event, .team {
         padding: 3rem 0; 
     } 
+    .team__gallery {
+        width: 100%;
+    }
+    .team__image {
+        object-position: top;
+    }
     .menu {
         padding: 1rem 0;  
     }
@@ -13111,5 +13245,26 @@ input[type=number]::-webkit-outer-spin-button{
     } 
     .team__container {
         padding: 0 1rem;
-    }       
-}       
+    }  
+    .contacts__place, .contacts__time {
+        font-size: 1rem;
+    }
+    .footer__text {
+        font-size: 0.7rem;
+    }
+}      
+@media screen and (max-width: 425px) {  
+    .event__cards {
+        width: 75%;
+    }
+    .event__wrap--arrow {
+        top: 0;
+        right: calc(50% - 6.105rem);
+        padding-bottom: 2rem;
+        width: 5.05rem;
+        height: 3rem;
+    }
+    .event__wrap--left {
+        right: calc(50% + 0.775rem);
+    }  
+}    

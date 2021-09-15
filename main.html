@@ -78,7 +78,10 @@
       </a>  
      
       <div class="header__item header__item--special">
-        <button class="header__reserve" onclick="ym(51941426,'reachGoal','bookingInHeader'); gtag('event', 'click', {'event_category': 'button', 'event_label': 'bookingInHeader'}); return true;">Забронировать</button>
+        <button class="header__reserve" onclick="ym(51941426,'reachGoal','bookingInHeader'); gtag('event', 'click', {'event_category': 'button', 'event_label': 'bookingInHeader'}); return true;">
+          <div class="header__fill"></div>
+          <div class="header__content">Забронировать</div> 
+        </button>
         <div class="header__button">
           <a href="http://tokyosushibar.ru/delivery-menu/" class="header__buy" target="_blank">
             <img class="header__cart" src="./template/img/roll.svg" alt="roll">
@@ -101,6 +104,7 @@
           <h1 class="home__title">ДОСТАВКА</h1>
           <p class="home__subtitle">Меню доставки</p>
         </a>
+        <div class="home__blur"></div>
       </div>
       <img class="home__logo" src="./template/img/Union.svg" alt="union">
       <div class="home__footer">
@@ -111,7 +115,7 @@
           </div>
           <div class="home__delivery">            
             <span class="home__text">Телефон доставки</span> 
-            <span><a class="home__tel" href="tel:*2340" onclick="ym(51941426,'reachGoal','clickPhoneHeader'); gtag('event', 'click', {'event_category': 'button', 'event_label': 'clickPhoneHeader'}); return true;">*2340 &#47; </a><a class="home__tel" href="tel:+7(495)181-52-22 " onclick="ym(51941426,'reachGoal','clickPhoneHeader'); gtag('event','click',{'event_category': 'button', 'event_label': 'clickPhoneHeader'}); return true;">+7(495)181-52-22 </a></span>
+            <span><a class="home__tel" href="tel:*2340" onclick="ym(51941426,'reachGoal','clickPhoneHeader'); gtag('event', 'click', {'event_category': 'button', 'event_label': 'clickPhoneHeader'}); return true;">*2340 <span>&#47;</span></a><a class="home__tel" href="tel:+7(495)181-52-22 " onclick="ym(51941426,'reachGoal','clickPhoneHeader'); gtag('event','click',{'event_category': 'button', 'event_label': 'clickPhoneHeader'}); return true;">+7(495)181-52-22 </a></span>
             <span class="home__phone">заказать звонок</span>
           </div>      
        </div>       
@@ -236,8 +240,8 @@
           <p class="event__text">Tokyo — это о культуре еды по-японски, философии минимализма и высоком мастерстве.</p>  
           <a href="http://tokyosushibar.ru/news/" class="event__link" target="_blank">Все события &rarr;</a>
           <div class="event__arrow">
-            <div class="about__wrap--arrow event__wrap--arrow event__wrap--left" id="event-arrow-next"><div class="about__arrow">&larr;</div></div>
-            <div class="about__wrap--arrow event__wrap--arrow" id="event-arrow-prev"><div class="about__arrow about__arrow--right">&larr;</div></div>
+            <div class="event__wrap--arrow event__wrap--left" id="event-arrow-next"><div class="about__arrow">&larr;</div></div>
+            <div class="event__wrap--arrow" id="event-arrow-prev"><div class="about__arrow about__arrow--right">&larr;</div></div>
           </div>
         </div>
       </div>
@@ -261,8 +265,8 @@
     <section class="team" data-anchor="team">
       <div class="main__container team__container">        
         <div class="team__item">
-          <div class="about__wrap--arrow team__wrap--arrow team__wrap--left" id="team-arrow-next"><div class="about__arrow">&larr;</div></div>
-          <div class="about__wrap--arrow team__wrap--arrow" id="team-arrow-prev"><div class="about__arrow about__arrow--right">&larr;</div></div>
+          <div class="team__wrap--arrow team__wrap--left" id="team-arrow-next"><div class="about__arrow">&larr;</div></div>
+          <div class="team__wrap--arrow" id="team-arrow-prev"><div class="about__arrow about__arrow--right">&larr;</div></div>
           <p class="team__subtitle">Шеф и команда</p>
           <h2 class="team__title">Егор Калинин</h2>
           <p class="team__text">Кухню модного японского ресторана Tokyo Sushi, чье название уже стало синонимом качества, высокого сервиса и идеального вкуса, возглавил молодой, амбициозный и харизматичный Егор Калинин.</p>
@@ -300,7 +304,7 @@
       <div class="main__container contacts__container">
         <div class="contacts__item">
           <h1 class="contacts__title">Контакты</h1>
-          <div class="home__social">
+          <div class="home__social contacts__social">
             <a class="home__icon contacts__icon" href="https://www.facebook.com/tokyosushimoscow/" target="_blank">Facebook</a>
             <a class="home__icon contacts__icon" href="https://www.instagram.com/Tokyosushi_moscow/" target="_blank">Instagram</a>
           </div>
