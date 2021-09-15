@@ -12434,22 +12434,28 @@ input[type=number]::-webkit-outer-spin-button{
     z-index: 3;
 }
 .home__blur {
+    left: 0;
+    background-image: linear-gradient(0deg, rgba(23, 23, 23, 0.45), rgba(23, 23, 23, 0.45)), url(../img/IMG_8799\ 1.png); 
+}
+.home__blur, .home__blur--special {
     width: 50%;
     height: 100%;
     position: absolute;
-    z-index: -1;
-    left: 0;
+    z-index: -1;    
     top: 0;
     filter: blur(10px);
     min-height: 100vh;
-    transition: transform 0.5s ease-in-out;        
+    transition: all 1s ease-in-out;        
     background-repeat: no-repeat;
-    background-size: cover;
-    background-image: linear-gradient(0deg, rgba(23, 23, 23, 0.45), rgba(23, 23, 23, 0.45)), url(../img/IMG_8799\ 1.png); 
+    background-size: cover;    
 }
-.home__content:hover~.home__blur {
+.home__blur--special {
+    right: 0;    
+    background-image: linear-gradient(0deg, rgba(23, 23, 23, 0.4), rgba(23, 23, 23, 0.4)), url(../img/IMG_8924\ 1.png); 
+}
+.home__content:hover~.home__blur, .home__content:hover~.home__blur--special {
     z-index: 1; 
-    transition: transform 0.5s ease-in-out;
+    transition: all 1s ease-in-out;
 } 
 .home__title, .about__title { 
     font-family: 'BravoRG', sans-serif;
@@ -12800,18 +12806,11 @@ input[type=number]::-webkit-outer-spin-button{
     width: 100%;
     padding-top: 122%;
     position: relative;
-    transform: scale(1);
+    transition: all 0.5s;
 }
 @media (hover) {
     .event__cards:hover .event__wrap {
-        width: 105%;
-        transition: transform .5s ease-in-out;
-    }
-}
-@media (hover) {
-    .event__cards:hover .event__date, .event__cards:hover .event__subtitle {
-        margin-left: 1rem;
-        transition: transform .5s ease-in-out;
+        transform: scale(1.05);
     }
 }
 .event__image {
@@ -13153,7 +13152,7 @@ input[type=number]::-webkit-outer-spin-button{
         min-height: 50vh;
         width: 100%;
     }
-    .home__content:hover~.home__blur {
+    .home__content:hover~.home__blur, .home__content:hover~.home__blur--special {
         z-index: -1; 
     }    
     .home__social, .home__delivery {
@@ -13174,6 +13173,7 @@ input[type=number]::-webkit-outer-spin-button{
     }
     .event__cards {
         width: 60%;
+        padding-bottom: 3.5rem;
     }
     .event__text {
         text-align: center;
